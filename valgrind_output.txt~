@@ -1,0 +1,74 @@
+==705207== Memcheck, a memory error detector
+==705207== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==705207== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==705207== Command: ./bugs
+==705207== 
+==705207== Use of uninitialised value of size 8
+==705207==    at 0x48D42EB: _itoa_word (_itoa.c:177)
+==705207==    by 0x48EFABD: __vfprintf_internal (vfprintf-internal.c:1516)
+==705207==    by 0x48DA79E: printf (printf.c:33)
+==705207==    by 0x109418: main (bugs.c:108)
+==705207== 
+==705207== Conditional jump or move depends on uninitialised value(s)
+==705207==    at 0x48D42FC: _itoa_word (_itoa.c:177)
+==705207==    by 0x48EFABD: __vfprintf_internal (vfprintf-internal.c:1516)
+==705207==    by 0x48DA79E: printf (printf.c:33)
+==705207==    by 0x109418: main (bugs.c:108)
+==705207== 
+==705207== Conditional jump or move depends on uninitialised value(s)
+==705207==    at 0x48F05C3: __vfprintf_internal (vfprintf-internal.c:1516)
+==705207==    by 0x48DA79E: printf (printf.c:33)
+==705207==    by 0x109418: main (bugs.c:108)
+==705207== 
+==705207== Conditional jump or move depends on uninitialised value(s)
+==705207==    at 0x48EFC05: __vfprintf_internal (vfprintf-internal.c:1516)
+==705207==    by 0x48DA79E: printf (printf.c:33)
+==705207==    by 0x109418: main (bugs.c:108)
+==705207== 
+==705207== Invalid read of size 1
+==705207==    at 0x484ED16: strlen (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==705207==    by 0x48F0D30: __vfprintf_internal (vfprintf-internal.c:1517)
+==705207==    by 0x48DA79E: printf (printf.c:33)
+==705207==    by 0x109242: echo (bugs.c:53)
+==705207==    by 0x109261: echo (bugs.c:56)
+==705207==    by 0x109261: echo (bugs.c:56)
+==705207==    by 0x109261: echo (bugs.c:56)
+==705207==    by 0x109261: echo (bugs.c:56)
+==705207==    by 0x109261: echo (bugs.c:56)
+==705207==    by 0x109261: echo (bugs.c:56)
+==705207==    by 0x109261: echo (bugs.c:56)
+==705207==    by 0x109474: main (bugs.c:124)
+==705207==  Address 0x148a04289b940000 is not stack'd, malloc'd or (recently) free'd
+==705207== 
+==705207== 
+==705207== Process terminating with default action of signal 11 (SIGSEGV)
+==705207==  General Protection Fault
+==705207==    at 0x484ED16: strlen (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==705207==    by 0x48F0D30: __vfprintf_internal (vfprintf-internal.c:1517)
+==705207==    by 0x48DA79E: printf (printf.c:33)
+==705207==    by 0x109242: echo (bugs.c:53)
+==705207==    by 0x109261: echo (bugs.c:56)
+==705207==    by 0x109261: echo (bugs.c:56)
+==705207==    by 0x109261: echo (bugs.c:56)
+==705207==    by 0x109261: echo (bugs.c:56)
+==705207==    by 0x109261: echo (bugs.c:56)
+==705207==    by 0x109261: echo (bugs.c:56)
+==705207==    by 0x109261: echo (bugs.c:56)
+==705207==    by 0x109474: main (bugs.c:124)
+==705207== 
+==705207== HEAP SUMMARY:
+==705207==     in use at exit: 8,218 bytes in 7 blocks
+==705207==   total heap usage: 7 allocs, 0 frees, 8,218 bytes allocated
+==705207== 
+==705207== LEAK SUMMARY:
+==705207==    definitely lost: 0 bytes in 0 blocks
+==705207==    indirectly lost: 0 bytes in 0 blocks
+==705207==      possibly lost: 0 bytes in 0 blocks
+==705207==    still reachable: 8,218 bytes in 7 blocks
+==705207==         suppressed: 0 bytes in 0 blocks
+==705207== Reachable blocks (those to which a pointer was found) are not shown.
+==705207== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==705207== 
+==705207== Use --track-origins=yes to see where uninitialised values come from
+==705207== For lists of detected and suppressed errors, rerun with: -s
+==705207== ERROR SUMMARY: 5 errors from 5 contexts (suppressed: 0 from 0)
