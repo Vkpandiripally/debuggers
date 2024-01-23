@@ -65,7 +65,7 @@ void echoohce(char** strs) {
 
   // FIXME: Something is wrong in this for loop. It is printing garbage characters.
   for (iter = strs; *iter != NULL; ++iter)
-    printf("%s ", iter);
+    printf("%s ", *iter);
 
   fflush(stdout);
 
@@ -75,7 +75,7 @@ void echoohce(char** strs) {
   // FIXME: Do the same thing only backwards. The array has a NULL pointer at
   // the front, right? Nope. Both sides of the condition in the for loop are
   // wrong.
-  for (; *iter != NULL; --iter)
+  for (; *iter != stop_beginning; --iter)
     printf("%s ", *iter);
 
   printf("\n");
@@ -145,7 +145,7 @@ int main(int argc, char** argv) {
   free(bug_info.sentence[5]);
 
   // Prints "The current bug adjective is: (null)"
-  printf("The current bug adjective is: %s\n", bug_info.sentence[2]);
+  printf("The current bug adjective is: %s\n", bug_info.sentence[6]);
 
   // Can we please forget about mosquitoes?
   // HINT: Where is the string that useless_bug is pointing to located in
