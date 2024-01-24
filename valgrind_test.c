@@ -23,7 +23,9 @@ int main() {
                                                              // heap.
 
     *definitely_lost = (void*) malloc(7); // Give the pointer something else to
-                                          // point to on the heap. This will be
+    
+    free(*definitely_lost);
+    free(definitely_lost);                                      // point to on the heap. This will be
                                           // indirectly lost.
   }
 
@@ -34,6 +36,7 @@ int main() {
   still_reachable = malloc(42); // This value is never freed but is pointed to
                                 // in the global scope at program completion.
 
+  free(still_reachable);
   possibly_lost = malloc(10);
   possibly_lost += 4; // This is similar to still reachable except there is a
                       // pointer pointing to the middle of the allocated block
@@ -41,5 +44,6 @@ int main() {
                       // very odd behavior and usually is a memory leak (but not
                       // always).
 
+  free(still_reachable - 4);
   return 0;
 }
