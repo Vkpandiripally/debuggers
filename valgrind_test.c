@@ -44,6 +44,6 @@ int main() {
                       // very odd behavior and usually is a memory leak (but not
                       // always).
 
-  free(still_reachable - 4);
+  free(possibly_lost - 4);
   return 0;
 }
