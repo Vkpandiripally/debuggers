@@ -143,6 +143,7 @@ int main(int argc, char** argv) {
   free(bug_info.sentence[3]);
   free(bug_info.sentence[4]);
   free(bug_info.sentence[5]);
+  bug_info.sentence[2] = NULL;
 
   // Prints "The current bug adjective is: (null)"
   printf("The current bug adjective is: %s\n", bug_info.sentence[6]);
